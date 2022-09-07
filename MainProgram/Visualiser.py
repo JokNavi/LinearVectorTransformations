@@ -1,0 +1,3 @@
+class RunProgram:
+  pass
+RunProgram()
