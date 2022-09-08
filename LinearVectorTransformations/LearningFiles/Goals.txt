@@ -1,0 +1,4 @@
+Understand maplotlib
+Understand how to put in dynamic plots/vectors
+Make a set vector grid
+change the vector grid according to the input
