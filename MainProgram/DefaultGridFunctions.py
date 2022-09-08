@@ -8,12 +8,8 @@ class DefaultLayout:
         plt.xlabel("X axis")
         plt.ylabel("Y axis")
         plt.grid()
-    def VectorEditor():
-        VectorAmount = 9
-        Height = 1
-        Width = 1
-        ModifierHeight = 0
-        ModifierWidth = 0
+    def VectorEditor(Height, Width, Vectors, Space):
+        VectorAmount = Vectors + 1
         def BasisVectors(XInput,YInput):
             def BasisX():
                 x = np.array([0,0])
@@ -36,11 +32,11 @@ class DefaultLayout:
         def SetVectors():
             Spacing = 0
             for Vector in range(VectorAmount):
-                FinalHeight = Height * 16
-                FinalWidth = Width * 16
+                FinalHeight = (Height * Vectors) * Space
+                FinalWidth = (Width * Vectors)
                 CreateVectorsX(Spacing, FinalHeight)
                 CreateVectorsY(Spacing, FinalWidth)
-                Spacing = Spacing + 2 
+                Spacing = Spacing + Space
         SetVectors()
         BasisVectors(Height,Width)
        
