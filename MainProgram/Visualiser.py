@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 from DefaultGridFunctions import DefaultLayout
 DL = DefaultLayout
 class RunProgram:
+  #Change these inputs (Vectors and Space)
   VECTORS = 10
   SPACE = 1
   DL.MyGrid()
