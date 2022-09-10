@@ -10,7 +10,6 @@ class RunProgram:
         # Change these inputs (Vectors and Space)
         VECTORS = 10
         SPACE = 1
-
         DLS = DefaultLayoutS
         DLS.MyGrid()
         DLS.VectorEditor(1, 1, VECTORS, SPACE)
@@ -19,15 +18,17 @@ class RunProgram:
     def VectorTransformations():
         # Change these inputs (Vectors and Space)
         VECTORS = 10
-        SPACE = 1
-        DL = DefaultLayout(1, 1, VECTORS)
+        SPACING = 1
+        Height = 1
+        Width = 1
+        DL = DefaultLayout(Height, Width, VECTORS, SPACING)
         DL.MyGrid()
         DL.BasisVectors()
         DL.VectorsTLBR()
         plt.show()
 
     VectorTransformations()
-    # SquareGrid()
+    #SquareGrid()
 
 
 RunProgram()
