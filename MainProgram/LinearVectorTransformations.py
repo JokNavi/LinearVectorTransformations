@@ -53,6 +53,19 @@ class DefaultLayout:
                 EditedX = EditedX + self.Spacing
                 TestVector(EditedX, EditedY, ZeroX, ZeroY)
 
+        def PartTwo():
+            EditedY = self.YInput * (self.VectorAmount + 1)
+            EditedX = self.XInput * (self.VectorAmount + 1)
+            ZeroY = 0
+            ZeroX = 0 
+
+            #TestVector(EditedX, EditedY, ZeroX, ZeroY)
+            for vector in range(self.VectorAmount):
+                ZeroY = ZeroY + self.YInput
+                ZeroX = ZeroX + self.XInput
+                TestVector(EditedX, EditedY, ZeroX, ZeroY)
+
+        PartTwo()
         PartOne()
 
     def VectorGroupTwo(self):
@@ -76,4 +89,22 @@ class DefaultLayout:
                 ZeroX = ZeroX + self.XInput
                 TestVector(MaxCoordX, MaxCoordY, ZeroX, ZeroY)
                 Counter = Counter - 1
+        
+        def PartTwo():
+            MaxCoordX = self.MaxCoordX
+            MaxCoordY = self.MaxCoordY
+            XInput = self.XInput
+            YInput = self.YInput
+            ZeroX = 0
+            ZeroY = 0
+            Counter = self.VectorAmount 
+
+            #TestVector(MaxCoordX, MaxCoordY, ZeroX, ZeroY)
+            while Counter > 0:
+                ZeroY = YInput + self.YInput
+                #MaxCoordY = MaxCoordY + self.YInput
+                YInput = YInput - self.YInput
+                TestVector(XInput, XInput, ZeroX, ZeroY)
+                Counter = Counter - 1
+        PartTwo()
         PartOne()
