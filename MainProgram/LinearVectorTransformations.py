@@ -17,13 +17,13 @@ class DefaultLayout:
         # Creates basis vectors acording to height and width (XInput,YInput)
         def BasisVectors(XInput, YInput):
             def BasisX():
-                x = np.array([0, 0])
-                y = np.array([XInput, 0])
+                x = np.array([0, XInput])
+                y = np.array([0, XInput])
                 plt.plot(x, y, color='r')
 
             def BasisY():
                 x = np.array([0, YInput])
-                y = np.array([0, 0])
+                y = np.array([1, 0])
                 plt.plot(x, y, color='r')
             BasisX()
             BasisY()
@@ -49,5 +49,4 @@ class DefaultLayout:
                 CreateVectorsX(Spacing, FinalHeight)
                 CreateVectorsY(Spacing, FinalWidth)
                 Spacing = Spacing + Space
-        SetVectors()
         BasisVectors(Height, Width)

@@ -22,7 +22,8 @@ class RunProgram:
         DL.VectorEditor(1, 1, VECTORS, SPACE)
         plt.show()
 
-    SquareGrid()
+    VectorTransformations()
+    #SquareGrid()
 
 
 RunProgram()
