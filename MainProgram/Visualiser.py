@@ -24,7 +24,8 @@ class RunProgram:
         DL = DefaultLayout(Height, Width, VECTORS, SPACING)
         DL.MyGrid()
         DL.BasisVectors()
-        DL.VectorsTLBR()
+        DL.VectorsGroupOne()
+        DL.VectorGroupTwo()
         plt.show()
 
     VectorTransformations()

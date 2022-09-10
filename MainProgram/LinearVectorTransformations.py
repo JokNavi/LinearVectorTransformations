@@ -9,6 +9,8 @@ class DefaultLayout:
         self.YInput = Height
         self.VectorAmount = Vectors - 1
         self.Spacing = Spacing
+        self.MaxCoordX = self.VectorAmount * self.XInput + 1
+        self.MaxCoordY = self.VectorAmount * self.YInput + 1
 
     def MyGrid(self):
         plt.title("Linear Vector Transformations")
@@ -32,17 +34,46 @@ class DefaultLayout:
         BasisX()
         BasisY()
 
-    def VectorsTLBR(self):
-        EditedX = self.XInput
-        EditedY = self.YInput
+    def VectorsGroupOne(self):
 
-        def TestVector(XCoord, YCoord):
-            y = np.array([XCoord, 0])
-            x = np.array([0, YCoord])
+        def TestVector(XCoord, YCoord, ZeroX, ZeroY):
+            y = np.array([XCoord, ZeroY])
+            x = np.array([ZeroX, YCoord])
             plt.plot(x, y, color='b')
 
-        TestVector(EditedX, EditedY)
-        for vector in range(self.VectorAmount):
-            EditedY = EditedY + self.Spacing
-            EditedX = EditedX + self.Spacing
-            TestVector(EditedX, EditedY)
+        def PartOne():
+            EditedX = self.XInput
+            EditedY = self.YInput
+            ZeroX = 0
+            ZeroY = 0
+
+            TestVector(EditedX, EditedY, ZeroX, ZeroY)
+            for vector in range(self.VectorAmount):
+                EditedY = EditedY + self.Spacing
+                EditedX = EditedX + self.Spacing
+                TestVector(EditedX, EditedY, ZeroX, ZeroY)
+
+        PartOne()
+
+    def VectorGroupTwo(self):
+
+        def TestVector(MaxCoordY, MaxCoordX, ZeroX, ZeroY):
+            y = np.array([ZeroY, MaxCoordX])
+            x = np.array([ZeroX, MaxCoordY])
+            plt.plot(x, y, color='b')
+
+        def PartOne():
+            MaxCoordX = self.MaxCoordX
+            MaxCoordY = self.MaxCoordY
+            ZeroX = 0
+            ZeroY = 0
+            Counter = self.VectorAmount
+
+            TestVector(MaxCoordX, MaxCoordY, ZeroX, ZeroY)
+            while Counter > 0:
+                #MaxCoordX = MaxCoordX - self.YInput
+                MaxCoordY = MaxCoordY - self.YInput
+                ZeroX = ZeroX + self.XInput
+                TestVector(MaxCoordX, MaxCoordY, ZeroX, ZeroY)
+                Counter = Counter - 1
+        PartOne()
