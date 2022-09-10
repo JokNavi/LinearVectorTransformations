@@ -59,7 +59,6 @@ class DefaultLayout:
             ZeroY = 0
             ZeroX = 0 
 
-            #TestVector(EditedX, EditedY, ZeroX, ZeroY)
             for vector in range(self.VectorAmount):
                 ZeroY = ZeroY + self.YInput
                 ZeroX = ZeroX + self.XInput
@@ -70,41 +69,40 @@ class DefaultLayout:
 
     def VectorGroupTwo(self):
 
-        def TestVector(MaxCoordY, MaxCoordX, ZeroX, ZeroY):
-            y = np.array([ZeroY, MaxCoordX])
-            x = np.array([ZeroX, MaxCoordY])
+        def TestVector(cY, cX, ZeroForX, ZeroForY):
+            y = np.array([ZeroForY, cY])
+            x = np.array([ZeroForX, cX])
             plt.plot(x, y, color='b')
 
         def PartOne():
+            XInput = self.XInput
+            YInput = self.YInput
             MaxCoordX = self.MaxCoordX
             MaxCoordY = self.MaxCoordY
-            ZeroX = 0
-            ZeroY = 0
+            ZeroForX = 0
+            ZeroForY = 0
             Counter = self.VectorAmount
 
-            TestVector(MaxCoordX, MaxCoordY, ZeroX, ZeroY)
+            TestVector(MaxCoordX, MaxCoordY, ZeroForX, ZeroForY)
             while Counter > 0:
-                #MaxCoordX = MaxCoordX - self.YInput
-                MaxCoordY = MaxCoordY - self.YInput
-                ZeroX = ZeroX + self.XInput
-                TestVector(MaxCoordX, MaxCoordY, ZeroX, ZeroY)
+                YInput = YInput + self.YInput
+                #MaxCoordY = MaxCoordY - self.YInput
+                TestVector(YInput, XInput, ZeroForX, ZeroForY)
                 Counter = Counter - 1
         
         def PartTwo():
-            MaxCoordX = self.MaxCoordX
-            MaxCoordY = self.MaxCoordY
-            XInput = self.XInput
-            YInput = self.YInput
-            ZeroX = 0
-            ZeroY = 0
+            cX = self.MaxCoordX
+            cY = 0
+            ZeroForX = 0
+            ZeroForY = self.MaxCoordY
             Counter = self.VectorAmount 
 
-            #TestVector(MaxCoordX, MaxCoordY, ZeroX, ZeroY)
             while Counter > 0:
-                ZeroY = YInput + self.YInput
-                #MaxCoordY = MaxCoordY + self.YInput
-                YInput = YInput - self.YInput
-                TestVector(XInput, XInput, ZeroX, ZeroY)
+                ZeroForX = ZeroForX + 1
+                cY = cY #Remove later
+                #cX = cX - 1
+                #ZeroForY = ZeroForY #RL
+                TestVector(cY, cX, ZeroForX, ZeroForY)
                 Counter = Counter - 1
-        PartTwo()
+        #PartTwo()
         PartOne()
