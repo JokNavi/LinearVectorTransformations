@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
-from MainProgram.LinearVectorTransformations import DefaultLayout
+from LinearVectorTransformations import DefaultLayout
+from HorizontalVerticalGridFunctions import DefaultLayoutS
+DLS = DefaultLayoutS
 DL = DefaultLayout
 
 
@@ -8,8 +10,8 @@ class RunProgram:
         # Change these inputs (Vectors and Space)
         VECTORS = 10
         SPACE = 1
-        DL.MyGrid()
-        DL.VectorEditor(1, 1, VECTORS, SPACE)
+        DLS.MyGrid()
+        DLS.VectorEditor(1, 1, VECTORS, SPACE)
         plt.show()
 
     def VectorTransformations():
@@ -19,6 +21,8 @@ class RunProgram:
         DL.MyGrid()
         DL.VectorEditor(1, 1, VECTORS, SPACE)
         plt.show()
+
+    SquareGrid()
 
 
 RunProgram()

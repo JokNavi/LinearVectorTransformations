@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-class DefaultLayout:
+class DefaultLayoutS:
 
     def MyGrid():
         plt.title("Linear Vector Transformations")
