@@ -2,8 +2,7 @@ import matplotlib.pyplot as plt
 from LinearVectorTransformations import DefaultLayout
 from HorizontalVerticalGridFunctions import DefaultLayoutS
 DLS = DefaultLayoutS
-DL = DefaultLayout
-
+DL = DefaultLayout(1, 1)
 
 class RunProgram:
     def SquareGrid():
@@ -19,7 +18,7 @@ class RunProgram:
         VECTORS = 10
         SPACE = 1
         DL.MyGrid()
-        DL.VectorEditor(1, 1, VECTORS, SPACE)
+        DL.VectorEditor(VECTORS, SPACE)
         plt.show()
 
     VectorTransformations()
