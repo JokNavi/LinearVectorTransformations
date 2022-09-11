@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 class DefaultLayout:
 
     def __init__(self, Width, Height, Vectors, Spacing):
-        self.XInputA = Width
-        self.YInputA = Height
-        self.XInputB = 0
+        self.XInputA = 0
+        self.YInputA = Width
+        self.XInputB = Height
         self.YInputB = 0
         self.Vectors = Vectors
         self.MaxXInput = Width * Vectors
@@ -43,18 +43,32 @@ class DefaultLayout:
             plt.plot(a, b, color='b')
 
         def RepeatVectorDraw():
-            YInputA_M = self.YInputA
-            XInputA_M = self.XInputA
-            XInputB_M = self.XInputB
-            YInputB_M = self.YInputB
 
-            for _ in range(self.Vectors):
-                DrawVector(YInputA_M, YInputB_M , XInputA_M, XInputB_M)
-                XInputM = XInputM + 1
-                YInputM = YInputM + 1
+            def PartOne():
+                YInputA_M = self.YInputA
+                XInputA_M = self.XInputA
+                XInputB_M = self.XInputB
+                YInputB_M = self.YInputB
 
-            for _ in range(self.Vectors - 1):
-                DrawVector(YInputA_M, YInputB_M , XInputA_M, XInputB_M)
+                for _ in range(self.Vectors):
+                    DrawVector(YInputA_M, YInputB_M , XInputB_M, XInputA_M)
+                    YInputA_M = YInputA_M + 1
+                    XInputB_M = XInputB_M + 1
+
+            def PartTwo():
+                YInputA_M = self.MaxYInput
+                YInputB_M = self.YInputB
+                XInputB_M = self.MaxXInput
+                XInputA_M = self.XInputB
+
+                for _ in range(self.Vectors - 1):
+                    DrawVector(YInputA_M, YInputB_M , XInputB_M, XInputA_M)
+
+            PartOne()
+            #PartTwo()
+            
+
+            
 
         RepeatVectorDraw()
                 
