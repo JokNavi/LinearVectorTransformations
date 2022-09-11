@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-class DefaultLayout:
+class DefaultLayoutS:
 
     def MyGrid():
-        plt.title("Linear Vector Transformations")
+        plt.title("Horizontal/Vertical Vector Transformations")
         plt.xlabel("X axis")
         plt.ylabel("Y axis")
         plt.grid()
@@ -45,7 +45,7 @@ class DefaultLayout:
             Spacing = 0
             for Vector in range(VectorAmount):
                 FinalHeight = (Height * Vectors) * Space
-                FinalWidth = (Width * Vectors)
+                FinalWidth = (Width * Vectors) * Space
                 CreateVectorsX(Spacing, FinalHeight)
                 CreateVectorsY(Spacing, FinalWidth)
                 Spacing = Spacing + Space
