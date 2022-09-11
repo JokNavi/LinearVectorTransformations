@@ -20,7 +20,7 @@ class RunProgram:
         SPACING = 1
         Height = 1
         Width = 1
-        DL = DefaultLayout(Height, Width, VECTORS, SPACING)
+        DL = DefaultLayout(Width, Height, VECTORS, SPACING)
         DL.MyGrid()
         DL.BasisVectors()
         DL.VectorsGroupOne()

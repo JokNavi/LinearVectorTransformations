@@ -4,9 +4,14 @@ import matplotlib.pyplot as plt
 
 class DefaultLayout:
 
-    def __init__(self, Height, Width, Vectors, Spacing):
-        self.XInput = Width
-        self.YInput = Height
+    def __init__(self, Width, Height, Vectors, Spacing):
+        self.XInputA = Width
+        self.YInputA = Height
+        self.XInputB = 0
+        self.YInputB = 0
+        self.Vectors = Vectors
+        self.MaxXInput = Width * Vectors
+        self.MaxYInput = Height * Vectors
 
     def MyGrid(self):
         plt.title("Linear Vector Transformations")
@@ -18,13 +23,13 @@ class DefaultLayout:
     def BasisVectors(self):
 
         def BasisHorizontal():
-            a = np.array([self.YInput, 0])
+            a = np.array([self.YInputA, 0])
             b = np.array([0, 0])
             plt.plot(a, b, color='r')
 
         def BasisVertical():
             a = np.array([0, 0])
-            b = np.array([0, self.XInput])
+            b = np.array([0, self.XInputB])
             plt.plot(a, b, color='r')
 
         BasisHorizontal()
@@ -32,12 +37,24 @@ class DefaultLayout:
 
     def VectorsGroupOne(self):
 
-        def DrawVector(InputY, ZeroY, InputX, ZeroX):
-            a = np.array([InputY, ZeroX])
-            b = np.array([ZeroY, InputX])
-            plt.plot(a, b, color='r')
+        def DrawVector(YInputA, YInputB , XInputB, XInputA):
+            a = np.array([YInputA, XInputA])
+            b = np.array([YInputB , XInputB])
+            plt.plot(a, b, color='b')
 
         def RepeatVectorDraw():
-            pass
+            YInputA_M = self.YInputA
+            XInputA_M = self.XInputA
+            XInputB_M = self.XInputB
+            YInputB_M = self.YInputB
 
-        DrawVector(1, 0, 1, 0)
+            for _ in range(self.Vectors):
+                DrawVector(YInputA_M, YInputB_M , XInputA_M, XInputB_M)
+                XInputM = XInputM + 1
+                YInputM = YInputM + 1
+
+            for _ in range(self.Vectors - 1):
+                DrawVector(YInputA_M, YInputB_M , XInputA_M, XInputB_M)
+
+        RepeatVectorDraw()
+                
