@@ -4,6 +4,7 @@ from HorizontalVerticalGridFunctions import DefaultLayoutS
 
 
 class RunProgram:
+    
     def SquareGrid():
         # Change these inputs (Vectors and Space)
         VECTORS = 10
@@ -23,10 +24,10 @@ class RunProgram:
         DL.MyGrid()
         DL.BasisVectors()
         DL.VectorsGroupOne()
-        DL.VectorGroupTwo()
         plt.show()
+
+
     VectorTransformations()
-    #SquareGrid()
 
 
 RunProgram()
