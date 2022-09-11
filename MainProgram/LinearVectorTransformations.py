@@ -59,13 +59,15 @@ class DefaultLayout:
                 YInputA_M = self.MaxYInput
                 YInputB_M = self.YInputB
                 XInputB_M = self.MaxXInput
-                XInputA_M = self.XInputB
+                XInputA_M = self.XInputA
 
                 for _ in range(self.Vectors - 1):
+                    XInputA_M = XInputA_M + 1
+                    YInputB_M = YInputB_M + 1
                     DrawVector(YInputA_M, YInputB_M , XInputB_M, XInputA_M)
 
             PartOne()
-            #PartTwo()
+            PartTwo()
             
 
             
