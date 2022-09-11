@@ -9,8 +9,8 @@ class DefaultLayout:
         self.YInput = Height
         self.VectorAmount = Vectors - 1
         self.Spacing = Spacing
-        self.MaxCoordX = self.VectorAmount * self.XInput + 1
-        self.MaxCoordY = self.VectorAmount * self.YInput + 1
+        self.MaxCoordX = self.VectorAmount * self.XInput
+        self.MaxCoordY = self.VectorAmount * self.YInput
 
     def MyGrid(self):
         plt.title("Linear Vector Transformations")
@@ -57,7 +57,7 @@ class DefaultLayout:
             EditedY = self.YInput * (self.VectorAmount + 1)
             EditedX = self.XInput * (self.VectorAmount + 1)
             ZeroY = 0
-            ZeroX = 0 
+            ZeroX = 0
 
             for vector in range(self.VectorAmount):
                 ZeroY = ZeroY + self.YInput
@@ -89,20 +89,20 @@ class DefaultLayout:
                 #MaxCoordY = MaxCoordY - self.YInput
                 TestVector(YInput, XInput, ZeroForX, ZeroForY)
                 Counter = Counter - 1
-        
+
         def PartTwo():
             cX = self.MaxCoordX
             cY = 0
             ZeroForX = 0
             ZeroForY = self.MaxCoordY
-            Counter = self.VectorAmount 
+            Counter = self.VectorAmount
 
             while Counter > 0:
                 ZeroForX = ZeroForX + 1
-                cY = cY #Remove later
+                cY = cY  # Remove later
                 #cX = cX - 1
-                #ZeroForY = ZeroForY #RL
+                # ZeroForY = ZeroForY #RL
                 TestVector(cY, cX, ZeroForX, ZeroForY)
                 Counter = Counter - 1
-        #PartTwo()
+        # PartTwo()
         PartOne()
