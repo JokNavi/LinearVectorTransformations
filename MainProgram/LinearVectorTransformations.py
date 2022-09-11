@@ -42,35 +42,57 @@ class DefaultLayout:
             b = np.array([YInputB , XInputB])
             plt.plot(a, b, color='b')
 
-        def RepeatVectorDraw():
+        def PartOne():
+            YInputA_M = self.YInputA
+            XInputA_M = self.XInputA
+            XInputB_M = self.XInputB
+            YInputB_M = self.YInputB
 
-            def PartOne():
-                YInputA_M = self.YInputA
-                XInputA_M = self.XInputA
-                XInputB_M = self.XInputB
-                YInputB_M = self.YInputB
+            for _ in range(self.Vectors):
+                DrawVector(YInputA_M, YInputB_M , XInputB_M, XInputA_M)
+                YInputA_M = YInputA_M + self.XInputB
+                XInputB_M = XInputB_M + self.YInputA
 
-                for _ in range(self.Vectors):
-                    DrawVector(YInputA_M, YInputB_M , XInputB_M, XInputA_M)
-                    YInputA_M = YInputA_M + 1
-                    XInputB_M = XInputB_M + 1
+        def PartTwo():
+            YInputA_M = self.MaxYInput
+            YInputB_M = self.YInputB
+            XInputB_M = self.MaxXInput
+            XInputA_M = self.XInputA
 
-            def PartTwo():
-                YInputA_M = self.MaxYInput
-                YInputB_M = self.YInputB
-                XInputB_M = self.MaxXInput
-                XInputA_M = self.XInputA
+            for _ in range(self.Vectors):
+                XInputA_M = XInputA_M + self.YInputA
+                YInputB_M = YInputB_M + self.XInputB
+                DrawVector(YInputA_M, YInputB_M , XInputB_M, XInputA_M)
 
-                for _ in range(self.Vectors - 1):
-                    XInputA_M = XInputA_M + 1
-                    YInputB_M = YInputB_M + 1
-                    DrawVector(YInputA_M, YInputB_M , XInputB_M, XInputA_M)
+        PartOne()
+        PartTwo()
+    
+    def VectorsGroupTwo(self):
 
-            PartOne()
-            PartTwo()
+        def DrawVector(YInputA, YInputB , XInputB, XInputA):
+            a = np.array([YInputA, XInputA])
+            b = np.array([YInputB, XInputB])
+            plt.plot(a, b, color='b')
+
+        def PartOne():
+            YInputA_M = 0
+            XInputA_M = self.MaxXInput
+            XInputB_M = self.MaxYInput
+            YInputB_M = 0
+
+            for _ in range(self.Vectors):
+                DrawVector(YInputA_M, YInputB_M , XInputB_M, XInputA_M)
+                XInputA_M = XInputA_M - self.YInputA
+                YInputB_M = YInputB_M + self.XInputB
+
+        def PartTwo():
+            pass
+
+        PartOne()
+        PartTwo()
+
+
             
 
-            
-
-        RepeatVectorDraw()
+        
                 
