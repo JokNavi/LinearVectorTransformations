@@ -19,12 +19,11 @@ class RunProgram:
         VECTORS = 10
         SPACING = 1
         Height = 1
-        Width = 2
+        Width = 1
         DL = DefaultLayout(Width, Height, VECTORS, SPACING)
         DL.MyGrid()
         DL.BasisVectors()
         DL.VectorsGroupOne()
-        DL.VectorsGroupTwo()
         plt.show()
 
 
